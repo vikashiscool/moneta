@@ -15,6 +15,17 @@ app.set('view engine', 'hbs');
 // connect to mongodb
 mongoose.connect('mongodb://localhost/mean_sample');
 
+
+
+
+
+
+
+
+
+
+
+
 // listen on port 3000
 app.listen(3000, function() {
   console.log('server started');
