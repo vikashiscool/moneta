@@ -16,7 +16,9 @@ app.set('view engine', 'hbs');
 mongoose.connect('mongodb://localhost/mean_sample');
 
 
-
+app.get('/', function (req, res) {
+  res.render('index');
+});
 
 
 
