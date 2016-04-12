@@ -1,0 +1,25 @@
+{
+  "name": "moneta",
+  "version": "1.0.0",
+  "description": "A web app to incentivize responsible investing: A General Assembly Labs collaboration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikashiscool/moneta.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vikashiscool/moneta/issues"
+  },
+  "homepage": "https://github.com/vikashiscool/moneta#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.12"
+  }
+}
