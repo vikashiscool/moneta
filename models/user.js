@@ -14,7 +14,8 @@ var userSchema = new mongoose.Schema({
   },
   // hash: String,
   // salt: String,
-//RESEARCH PASSWORD INCLUSION IN MODEL -- authENTICATION
+  //RESEARCH PASSWORD INCLUSION IN MODEL -- AUTHENTICATION
+
   location: {
     type: String,
     required: false
@@ -24,12 +25,13 @@ var userSchema = new mongoose.Schema({
     required: false
   },
   income: {
-    type: Number,ß
-    required: true
+    type: Number,
+    required: false
   },
   admin: {
     type: Boolean,
     required: true
+  todo: [TodoSchema]  
   }
 });
 

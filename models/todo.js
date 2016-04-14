@@ -3,12 +3,24 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var TodoSchema = new Schema({
-  name: {
+  item_name: {
     type: String,
     required: true
   },
-  yumminess: {
+  checked: {
+    type: Boolean,
+    required: true
+  },
+  user_id: {
+    type: Number,
+    required: true,
+  },
+  article_name:{
     type: String,
+    required: true
+  },
+  article_content:{
+    type: Text,
     required: true
   }
 })
