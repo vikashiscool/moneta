@@ -1,7 +1,11 @@
 var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
-    mongoose = require('mongoose');
+    cookieParser = require('cookie-parser'),
+    mongoose = require('mongoose'),
+    passport = require('passport');
+
+
 
 // configure bodyParser (for receiving form data)
 app.use(bodyParser.urlencoded({ extended: true }));
