@@ -15,7 +15,7 @@ var TodoSchema = new Schema({
     type: Number,
     required: true,
   },
-  article_name:{
+  article_title:{
     type: String,
     required: true
   },
