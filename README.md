@@ -1,4 +1,4 @@
-# Moneta - README
+# Moneta
 
 ## Introduction
 
@@ -22,17 +22,56 @@ The app can benefit from a lot of testing! Currently, Rspec and Capybara are use
 
 ## APIs
 
-*[Twilio](https://www.twilio.com) (for text notifications)
+* [Twilio](https://www.twilio.com) (for text notifications)
 * Google Calendar integration?
 * Possible visualizations with Chartkick or D3.js?
 
 ## Business Logic
 
-*index.js:* Creates the server, connects the app to the relevant Mongo database, and serves static files.
-*./public/scripts/app.js:* Handles application routing using Angular UI router.
-*./models/user.js* and *./models/todo.js:* Define the user and todo model, respectively.
+**index.js:** Creates the server, connects the app to the relevant Mongo database, and serves static files.
 
+**./public/scripts/app.js:** Handles application routing using Angular UI router.
+
+**./models/user.js** and **./models/todo.js:** Define the user and todo model, respectively.
 <!-- Include relevant API information here. -->
+
+## User Stories
+
+### Home page (index.html)
+
+*As a VISITOR I can...*
+* view the page/read app description
+* create an account
+* sign in to existing account
+
+### Profile page (user/index.html):
+
+*As a USER I can...*
+* Update and Delete profile —> Link to Edit profile view
+* View checklist
+* Click items to display articles
+* Check completed checklist items
+* Logout
+
+### Edit profile page (user/edit.html):
+
+*As a USER I can...*
+* Edit email, location, age, income, password , phone #
+* Delete profile
+* Logout
+
+### User show (user/*/show.html):
+
+*As a USER I can...*
+* Click checklist item to dynamically display article/resources with links (that open in a separate tab target="_blank". Once clicked, display modal "Great-- you've done blah."
+* Check off checklist item
+* Hover over key terms to display definitions
+* Logout
+
+*As an ADMIN-USER I can...*
+* CRUD (create-read-update-destroy) checklist items (item_name)
+* CRUD (create-read-update-destroy) article title/content
+* Logout
 
 ## Contributors
 
