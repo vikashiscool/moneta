@@ -35,10 +35,6 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // set view engine to hbs (handlebars)
 // app.set('view engine', 'hbs');
 
-// connect to mongodb
-// mongoose.connect('mongodb://localhost/moneta');
-
-
 
 
 app.get('/', function (req, res) {
