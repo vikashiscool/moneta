@@ -12,9 +12,9 @@ var express = require('express'),
 // require('./config/passport')(passport); // pass passport for configuration
 
 // configuration ===============================================================
-mongoose.connect(configDB.url); // connect to our database
+// mongoose.connect(configDB.url); // connect to our database
 
-// mongoose.connect('mongodb://localhost/moneta'); // connect to our database
+mongoose.connect('mongodb://localhost/moneta'); // connect to our database
 
 
 app.use(cookieParser()); // read cookies (needed for auth)
@@ -22,13 +22,17 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({ extended: true })); // configure bodyParser (for receiving form data)
 
 // serve static files from public folder
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/views'));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // required for passport
-app.use(session({ secret: 'moneymoneymoney' })); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
+app.use(session({ secret: 'moneymoneymoney', resave: false, saveUninitialized: false })); // session secret
+// app.use(passport.initialize()); // --> dependent on config/passport.js
+// app.use(passport.session()); // persistent login sessions --> dependent on config/passport.js
 app.use(flash()); // use connect-flash for flash messages stored in session
+
+// routes ======================================================================
+require('./routes.js')(app, passport); // load our routes and pass in our app and fully configured passport --> may need to create this file (04-18-16)
 
 
 
@@ -36,20 +40,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // app.set('view engine', 'hbs');
 
 
-
-app.get('/', function (req, res) {
-  res.render('index');
-});
-
-
-
-
-
-
-
-
-
 // listen on port 3000
-app.listen(3000, function() {
-  console.log('server started');
+app.listen(port, function() {
+  console.log('Server started on port ' + port);
 });
