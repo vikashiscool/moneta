@@ -55,8 +55,8 @@ var userSchema = new Schema({
   admin: {
     type: Boolean,
     required: true
-  },
-  todo: [TodoSchema]  
+  }
+  // todos: [Todo.schema]  
 });
 
 // methods ======================
@@ -72,5 +72,7 @@ userSchema.methods.validPassword = function(password) {
 
 
 //create the model for users and expose it to our app
-var User = mongoose.model("User", UserSchema);
+
+var User = mongoose.model("User", userSchema);
+
 module.exports = User;

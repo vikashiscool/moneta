@@ -25,12 +25,12 @@ module.exports = function(app, passport) {
     // =====================================
     // show the signup form
     app.get('/signup', function(req, res) {
-
+        // res.send("signup page here")
         // render the page and pass in any flash data if it exists
-        res.render('signup.html', { message: req.flash('signupMessage') });
+        res.sendFile('/views/signup.html', { message: req.flash('signupMessage') });
     });
 
-    // process the signup form --> where our success and failure gets redireted
+    // process the signup form --> where our success and failure gets redirected
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect : '/profile', // redirect to the secure profile section
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
