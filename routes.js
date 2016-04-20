@@ -14,7 +14,7 @@ module.exports = function(app, passport) {
     app.get('/login', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('login.html', { message: req.flash('loginMessage') }); 
+        res.render('login.html', { message: req.flash('loginMessage') });  //the connect-flash way of getting flashdata in the session. "loginMessage" created inside passport configuration
     });
 
     // process the login form
@@ -48,7 +48,7 @@ module.exports = function(app, passport) {
     // LOGOUT ==============================
     // =====================================
     app.get('/logout', function(req, res) {
-        req.logout();
+        req.logout(); //provided by passport
         res.redirect('/');
     });
 };
@@ -60,6 +60,6 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
 
-    // if they aren't redirect them to the home page
+    // if they aren't, redirect them to the home page
     res.redirect('/');
 }

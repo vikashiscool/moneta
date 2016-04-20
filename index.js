@@ -14,8 +14,7 @@ var express = require('express'),
 // configuration ===============================================================
 // mongoose.connect(configDB.url); // connect to our database
 
-mongoose.connect('mongodb://localhost/moneta'); // connect to our database
-
+mongoose.connect('mongodb://localhost/moneta'); // connect to our database on your local system named moneta. You can name it whatever you like, and it will be created as soon as you save some data to it.
 
 app.use(cookieParser()); // read cookies (needed for auth)
 
