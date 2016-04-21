@@ -52,10 +52,10 @@ var userSchema = new Schema({
     type: Number,
     required: false
   },
-  admin: {
-    type: Boolean,
-    required: true
-  }
+  // admin: {
+  //   type: Boolean,
+  //   required: true
+  // }
   // todos: [Todo.schema]  
 });
 
