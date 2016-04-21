@@ -14,7 +14,7 @@ module.exports = function(app, passport) {
     app.get('/login', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('login.html', { message: req.flash('loginMessage') });  //the connect-flash way of getting flashdata in the session. "loginMessage" created inside passport configuration
+        res.sendFile(__dirname + '/views/login.html', { message: req.flash('signupMessage') });  //the connect-flash way of getting flashdata in the session. "loginMessage" created inside passport configuration
     });
 
     // process the login form
@@ -27,7 +27,7 @@ module.exports = function(app, passport) {
     app.get('/signup', function(req, res) {
         // res.send("signup page here")
         // render the page and pass in any flash data if it exists
-        res.sendFile('/views/signup.html', { message: req.flash('signupMessage') });
+        res.sendFile(__dirname + '/views/signup.html', { message: req.flash('signupMessage') });
     });
 
     // process the signup form --> where our success and failure gets redirected
@@ -43,7 +43,7 @@ module.exports = function(app, passport) {
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.html', {
+        res.sendFile(__dirname + '/views/profile.html', {
             user : req.user // get the user out of session and pass to template
         });
     });
