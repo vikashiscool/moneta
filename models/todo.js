@@ -15,11 +15,11 @@ var todoSchema = new Schema({
     type: Number,
     required: true,
   },
-  article_title:{
+  article_title: {
     type: String,
     required: true
   },
-  article_content:{
+  article_content: {
     type: String,
     required: true
   }

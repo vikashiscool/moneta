@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 var bcrypt = require('bcrypt-nodejs');
-
+var todoSchema = require('./todo')
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
@@ -52,11 +52,11 @@ var userSchema = new Schema({
     type: Number,
     required: false
   },
-  // admin: {
-  //   type: Boolean,
-  //   required: true
-  // }
-  // todos: [Todo.schema]  
+  admin: {
+    type: Boolean,
+    required: true
+  },
+  todos: [todoSchema]  
 });
 
 // methods ======================
