@@ -129,9 +129,11 @@ module.exports = function(passport) {
     passport.use(new FacebookStrategy({
 
         // pull in our app id and secret from our auth.js file
-        clientID        : configAuth.facebookAuth.clientID,
-        clientSecret    : configAuth.facebookAuth.clientSecret,
-        callbackURL     : configAuth.facebookAuth.callbackURL
+        clientID         : configAuth.facebookAuth.clientID,
+        clientSecret     : configAuth.facebookAuth.clientSecret,
+        callbackURL      : configAuth.facebookAuth.callbackURL
+        // passReqToCallback: true
+        // profileFields   : ['email', 'id']
 
     },
     // The callback passes back user profile info, and each service (Facebook, Twitter, and Google) will pass it back a different way.
