@@ -32,12 +32,10 @@ app.use(bodyParser.urlencoded({ extended: true })); // configure bodyParser (for
 
 // required for passport
 app.use(session({ secret: 'moneymoneymoney', resave: false, saveUninitialized: false })); // session secret
-// app.use(passport.initialize()); // --> dependent on config/passport.js
-// app.use(passport.session()); // persistent login sessions --> dependent on config/passport.js
+app.use(passport.initialize()); // --> dependent on config/passport.js
+app.use(passport.session()); // persistent login sessions --> dependent on config/passport.js
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-app.use(passport.initialize());
-app.use(passport.session());
 // routes ======================================================================
 require('./routes.js')(app, passport); // load our routes and pass in our app and fully configured passport --> may need to create this file (04-18-16)
 
