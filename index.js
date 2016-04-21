@@ -19,14 +19,16 @@ var express = require('express'),
 
 mongoose.createConnection('mongodb://localhost/moneta'); // connect to our database on your local system named moneta. You can name it whatever you like, and it will be created as soon as you save some data to it.
 
-app.use(cookieParser()); // read cookies (needed for auth)
-
-app.use(bodyParser.urlencoded({ extended: true })); // configure bodyParser (for receiving form data)
-
 // serve static files from public folder
 app.use(express.static(__dirname + '/views'));
 // app.use(express.static(path.join(__dirname, 'public')));
 path.join(__dirname, '/views');
+
+app.use(cookieParser()); // read cookies (needed for auth)
+
+app.use(bodyParser.urlencoded({ extended: true })); // configure bodyParser (for receiving form data)
+
+
 
 // required for passport
 app.use(session({ secret: 'moneymoneymoney', resave: false, saveUninitialized: false })); // session secret
@@ -34,6 +36,8 @@ app.use(session({ secret: 'moneymoneymoney', resave: false, saveUninitialized: f
 // app.use(passport.session()); // persistent login sessions --> dependent on config/passport.js
 app.use(flash()); // use connect-flash for flash messages stored in session
 
+app.use(passport.initialize());
+app.use(passport.session());
 // routes ======================================================================
 require('./routes.js')(app, passport); // load our routes and pass in our app and fully configured passport --> may need to create this file (04-18-16)
 
