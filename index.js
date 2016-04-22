@@ -4,12 +4,14 @@ var express = require('express'),
     mongoose = require('mongoose'),
     passport = require('passport'),
     flash = require('connect-flash'),
+    morgan = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
     html = require('html'),
     db = require('./models'),
     path = require('path'),
+    methodOverride = require('method-override'),
     configDB = require('./config/database.js');
 
     require('./config/passport')(passport); // pass passport for configuration
@@ -21,12 +23,15 @@ mongoose.createConnection('mongodb://localhost/moneta'); // connect to our datab
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/views'));
+app.use(morgan('dev'));
 // app.use(express.static(path.join(__dirname, 'public')));
 path.join(__dirname, '/views');
 
 app.use(cookieParser()); // read cookies (needed for auth)
 
 app.use(bodyParser.urlencoded({ extended: true })); // configure bodyParser (for receiving form data)
+// app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
+app.use(methodOverride());
 
 
 
@@ -45,7 +50,7 @@ require('./routes.js')(app, passport); // load our routes and pass in our app an
 // app.set('view engine', 'hbs');
 
 
-// listen on port 3000
+// listen on port 8080 (local) or process.env.PORT (heroku)
 app.listen(port, function() {
   console.log('Server started on port ' + port);
 });
