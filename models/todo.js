@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
-var TodoSchema = new Schema({
+var todoSchema = new Schema({
   item_name: {
     type: String,
     required: true
@@ -15,16 +15,17 @@ var TodoSchema = new Schema({
     type: Number,
     required: true,
   },
-  article_title:{
+  article_title: {
     type: String,
     required: true
   },
-  article_content:{
-    type: Text,
+  article_content: {
+    type: String,
     required: true
   }
 })
 
-var Todo = mongoose.model("Todo", TodoSchema);
-
+var Todo = mongoose.model("Todo", todoSchema);
 module.exports = Todo;
+
+
