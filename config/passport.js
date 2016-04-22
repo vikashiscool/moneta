@@ -223,7 +223,7 @@ module.exports = function(passport) {
         callbackURL     : configAuth.googleAuth.callbackURL,
         passReqToCallback : true
     },
-    function(token, refreshToken, profile, done) {
+    function(req, token, refreshToken, profile, done) {
 
         // Make the code asynchronous (with a callback)
         // User.findOne won't fire until we have all our data back from Google
