@@ -132,8 +132,8 @@ module.exports = function(passport) {
         clientID         : configAuth.facebookAuth.clientID,
         clientSecret     : configAuth.facebookAuth.clientSecret,
         callbackURL      : configAuth.facebookAuth.callbackURL,
-        passReqToCallback: true
-        // profileFields   : ['email', 'id']
+        passReqToCallback: true,
+        profileFields   : ['email', 'id']
 
     },
     // The callback passes back user profile info, and each service (Facebook, Twitter, and Google) will pass it back a different way.
