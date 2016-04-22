@@ -131,8 +131,8 @@ module.exports = function(passport) {
         // pull in our app id and secret from our auth.js file
         clientID         : configAuth.facebookAuth.clientID,
         clientSecret     : configAuth.facebookAuth.clientSecret,
-        callbackURL      : configAuth.facebookAuth.callbackURL
-        // passReqToCallback: true
+        callbackURL      : configAuth.facebookAuth.callbackURL,
+        passReqToCallback: true
         // profileFields   : ['email', 'id']
 
     },
@@ -141,10 +141,13 @@ module.exports = function(passport) {
     // (So passport object is passed from serverjs to passportjs.) Go Passport!
 
     // facebook will send back the token and profile
-    function(token, refreshToken, profile, done) {
+    function(req, token, refreshToken, profile, done) {
 
         // asynchronous
         process.nextTick(function() {
+
+          // check if the user is already logged in
+          if (!req.user) {
 
             // find the user in the database based on their facebook id
             User.findOne({ 'facebook.id' : profile.id }, function(err, user) {
@@ -178,6 +181,23 @@ module.exports = function(passport) {
                 }
 
             });
+          } else {
+                // user already exists and is logged in, we have to link accounts
+                var user            = req.user; // pull the user out of the session
+
+                // update the current users facebook credentials
+                user.facebook.id    = profile.id;
+                user.facebook.token = token;
+                user.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
+                user.facebook.email = profile.emails[0].value;
+
+                // save the user
+                user.save(function(err) {
+                    if (err)
+                        throw err;
+                    return done(null, user);
+                });
+            }
         });
 
     }));
@@ -190,13 +210,16 @@ module.exports = function(passport) {
         clientID        : configAuth.googleAuth.clientID,
         clientSecret    : configAuth.googleAuth.clientSecret,
         callbackURL     : configAuth.googleAuth.callbackURL,
-
+        passReqToCallback : true
     },
     function(token, refreshToken, profile, done) {
 
         // Make the code asynchronous (with a callback)
         // User.findOne won't fire until we have all our data back from Google
         process.nextTick(function() {
+
+          //check if the user is already logged in
+          if (!req.user) {
 
             // try to find the user based on their google id
             User.findOne({ 'google.id' : profile.id }, function(err, user) {
@@ -225,6 +248,23 @@ module.exports = function(passport) {
                     });
                 }
             });
+          } else {
+            // user already exists and is logged in, we have to link accounts
+                var user            = req.user; // pull the user out of the session
+
+                // update the current users google credentials
+                user.google.id    = profile.id;
+                user.google.token = token;
+                user.google.name  = profile.name.givenName + ' ' + profile.name.familyName;
+                user.google.email = profile.emails[0].value;
+
+                // save the user
+                user.save(function(err) {
+                    if (err)
+                        throw err;
+                    return done(null, user);
+                });
+          }
         });
 
     }));
