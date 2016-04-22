@@ -17,7 +17,7 @@ module.exports = function(app, passport) {
         res.sendFile(__dirname + '/views/login.html', { message: req.flash('signupMessage') });  //the connect-flash way of getting flashdata in the session. "loginMessage" created inside passport configuration
     });
 
-    // process the login form
+    // Process the login form
     app.post('/login', passport.authenticate('local-login', {
         successRedirect : '/profile', // redirect to the secure profile section
         failureRedirect : '/login', // redirect back to the signup page if there is an error
@@ -36,7 +36,7 @@ module.exports = function(app, passport) {
         res.sendFile(__dirname + '/views/signup.html', { message: req.flash('signupMessage') });
     });
 
-    // process the signup form --> where our success and failure gets redirected
+    // Process the signup form --> where our success and failure gets redirected
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect : '/profile', // redirect to the secure profile section
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
@@ -67,6 +67,21 @@ module.exports = function(app, passport) {
             successRedirect : '/profile',
             failureRedirect : '/'
         }));
+
+    // =====================================
+    // GOOGLE ROUTES =======================
+    // =====================================
+    // Send client to google to complete authentication
+    // Profile gets us their basic information, including their name
+    // Email gets their emails
+    app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+    // the callback after google has authenticated the user
+    app.get('/auth/google/callback',
+            passport.authenticate('google', {
+                    successRedirect : '/profile',
+                    failureRedirect : '/'
+    }));
 
 
     // =====================================
