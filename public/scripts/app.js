@@ -1,26 +1,45 @@
 /*
 * public/scripts/app.js
 */
-var app = angular.module('moneta', ['ui.router']);
+var moneta = angular.module('moneta', ['ui.router']);
 
-app.config(config);
+function mainController($scope, $http) {
+    $scope.formData = {};
 
-config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
-function config($stateProvider, $urlRouterProvider, $locationProvider) {
-    console.log('config');
-    //this allows us to use routes without hash params!
-    $locationProvider.html5Mode({
-      enabled: true,
-      requireBase: false
-    });
-    // for any unmatched URL redirect to /
-    $urlRouterProvider.otherwise("/");
+    // When landing on the page, GET ALL todos and show them
+    $http.get('/api/todos')
+        .success(function(data) {
+          //On success, get api/todos and bind JSON we receive from $scope.todos
+            $scope.todos = data;
+            console.log(data);
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        });
 
-     $stateProvider
-      .state('home', {
-        url: "/",
-        controller: 'HomeController',
-        controllerAs: 'home',
-        template: 'index.html'
-      });
-  }
+    // When submitting the add form, send the text to the node API (CREATE)
+    $scope.createTodo = function() {
+        $http.post('/api/todos', $scope.formData)
+            .success(function(data) {
+                $scope.formData = {}; // Clear the form so our user is ready to enter another
+                $scope.todos = data;
+                console.log(data);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+    };
+
+    // DELETE a todo after checking it
+    $scope.deleteTodo = function(id) {
+        $http.delete('/api/todos/' + id)
+            .success(function(data) {
+                $scope.todos = data;
+                console.log(data);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+    };
+
+}
