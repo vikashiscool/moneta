@@ -1,11 +1,10 @@
 /*
 * public/scripts/app.js
 */
-var moneta = angular.module('moneta', ['ui.router']);
-
-function mainController($scope, $http) {
+var moneta = angular.module('moneta', ['ui.router'])
+  .controller('mainController', function ($scope, $http) {
     $scope.formData = {};
-
+    console.log("app.js is loaded");
     // When landing on the page, GET ALL todos and show them
     $http.get('/api/todos')
         .success(function(data) {
@@ -42,4 +41,4 @@ function mainController($scope, $http) {
             });
     };
 
-}
+});
