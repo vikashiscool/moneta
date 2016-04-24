@@ -4,7 +4,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     passport = require('passport'),
     flash = require('connect-flash'),
-    morgan = require('morgan'),
+    // morgan = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
@@ -23,9 +23,13 @@ mongoose.createConnection('mongodb://localhost/moneta'); // connect to our datab
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/views'));
-app.use(morgan('dev'));
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/bower_components'));
 path.join(__dirname, '/views');
+
+app.set('etag', false); // turn off
+
+// app.use(morgan('dev'));
 
 app.use(cookieParser()); // read cookies (needed for auth)
 
