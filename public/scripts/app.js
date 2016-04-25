@@ -31,14 +31,15 @@ var moneta = angular.module('moneta', ['ui.router'])
 
     // DELETE a todo after checking it
     $scope.deleteTodo = function(id) {
-        $http.delete('/api/todos/' + id)
-            .success(function(data) {
-                $scope.todos = data;
-                console.log(data);
-            })
-            .error(function(data) {
-                console.log('Error: ' + data);
-            });
+        console.log("you deleted a thing");
+    //     $http.delete('/api/todos/' + id)
+    //         .success(function(data) {
+    //             $scope.todos = data;
+    //             console.log(data);
+    //         })
+    //         .error(function(data) {
+    //             console.log('Error: ' + data);
+    //         });
     };
 
 });

@@ -24,10 +24,7 @@ var Todo = require("./models/todo.js");
     app.post('/api/todos', function(req, res) {
 
         // CREATE a todo, information comes from AJAX request from Angular
-        Todo.create({
-            text : req.body.text,
-            done : false
-        }, function(err, todo) {
+        Todo.create(req.body, function(err, todo) {
             if (err)
                 res.send(err);
 
