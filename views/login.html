@@ -1,54 +1,91 @@
-<!-- views/login.ejs -->
-<!doctype html>
-<html>
-<head>
-    <title>Node Authentication</title>
+<link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-</head>
-<body>
-<div class="container">
 
-<div class="col-sm-6 col-sm-offset-3">
+        <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!-- Angular -->
+    <script src="angular/angular.min.js"></script>
+    <!-- ui router -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="scripts/loginapp.js"></script>
+<style>
+  @charset "UTF-8";
+/* CSS Document */
 
-    <h1><span class="fa fa-sign-in"></span> Login</h1>
+body {
+    width:100px;
+  height:100px;
+  background: -webkit-linear-gradient(90deg, #3A6073 10%, #1c6e1d 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #3A6073 10%, #1c6e1d 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #3A6073 10%, #1c6e1d 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #3A6073 10%, #1c6e1d 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #3A6073 10%, #1c6e1d 90%); /* W3C */
+font-family: 'Raleway', sans-serif;
+}
 
-    <!-- show any messages that come back with authentication -->   
-    <!-- Replace this business with Angular -->
-    <% if (message.length > 0) { %>
-        <div class="alert alert-danger"><%= message %></div>
-    <% } %>
-    <!-- End of code to be replaced -->
+p {
+  color:#CCC;
+}
 
+.spacing {
+  padding-top:7px;
+  padding-bottom:7px;
+}
+.middlePage {
+  width: 680px;
+    height: 500px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
 
-    <p>Login or Register with:</p>
-    <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
-    <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
-    <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
-    <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
-
-
-    <!-- LOGIN FORM -->
-    <form action="/login" method="post">
-        <div class="form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" name="email">
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password">
-        </div>
-
-        <button type="submit" class="btn btn-warning btn-lg">Login</button>
-    </form>
-
-    <hr>
-
-    <p>Need an account? <a href="/signup">Signup</a></p>
-    <p>Or go <a href="/">home</a>.</p>
-
+.logo {
+  color:#CCC;
+}
+</style>
+<body ng-app="login">
+<div ng-controller="loginController" class="middlePage">
+<div class="page-header">
+  <h1 class="logo">Moneta <small>Lets get ready to invest!</small></h1>
 </div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Please {{sign}}</h3>
+  </div>
+  <div class="panel-body">
+  
+  <div class="row">
+  
+<div class="col-md-5" >
+<a href="/auth/facebook"><img src="http://techulus.com/buttons/fb.png" /></a><br/>
+<a href="/auth/google"><img src="http://techulus.com/buttons/gplus.png" /></a>
+</div>
+    <div class="col-md-7" style="border-left:1px solid #ccc;height:160px">
+        <form id="sign" action="/login" method="post" class="form-horizontal">
+            <fieldset>
+                <div>
+                  <input id="textinput" type="text" placeholder="Enter User Name" name="email" class="form-control input-md">
+                    
+                  <input id="textinput" type="password" placeholder="Enter Password" name="password" class="form-control input-md">
+                  <button ng-click="signup()"type="button" id="signUpButton" name="signup" class="btn btn-info btn-sm"> Need an Account?<br/></button>
+                  <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-info btn-sm pull-right">{{sign}}</button>
+
+              </div>
+            </fieldset>
+        </form>
+    </div>
+    
+</div>
+    
+</div>
+</div>
+
+<p><a href="https://github.com/arjunkomath">About</a> · Arjun</p>
 
 </div>
 </body>
-</html>
