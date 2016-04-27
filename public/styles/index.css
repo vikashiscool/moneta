@@ -1,6 +1,6 @@
 .full-width{
   width: 100%;
-  margin-bottom: 60px;
+  /*margin-bottom: 60px;*/
 }
 
 .jumbotron{
@@ -11,6 +11,7 @@
   background-size: cover;
   height: 500px;
   max-width: 100%;
+  margin-bottom: -15px;
 }
 
 .landing-title{
@@ -49,6 +50,9 @@
 #about-section{
   font-weight: 600px;
   text-align: center;
+  /*background-color: #182E0F;*/
+  width:100%;
+  padding: 40px 0 40px 0;
 }
 
 .heading{
@@ -97,7 +101,7 @@
 }
 
 #get-started{
-  margin: 50px;
+  margin-top: 50px;
   border: 2px solid green;
   /*color: green;*/
 }
@@ -187,4 +191,15 @@ Follow me on Twitter @maridlcrmn
 
 .red {
   background-color: red;
+}
+
+
+.checked{
+  color: gray;
+  text-decoration: line-through;
+  /*background-color: purple;*/
+}
+
+.unchecked{
+  background-color: pink;
 }

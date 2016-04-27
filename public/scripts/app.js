@@ -51,7 +51,45 @@ var moneta = angular.module('moneta', ['ui.router'])
     //         });
     };
 
+
+})
+
+
+.controller('checklistController', function ($scope, $http){
+
+function checklist($scope) {
+    console.log("checlist function whaat");
+    $scope.todos = [
+    { name: "Red", id: 0, isChecked: false },
+    { name: "Blue", id: 1, isChecked: false },
+    { name: "Green", id: 2, isChecked: false },
+    { name: "Yellow", id: 3, isChecked: false },
+    { name: "Orange", id: 4, isChecked: false },
+    { name: "Purple", id: 5, isChecked: false }
+    ];
+  }
 });
 
+// .controller("checklist", function($scope){
+//   console.log("Loading checklist controller");
+//   $scope.class = "unchecked";
+//   $scope.changeClass = function() {
+//     if($scope.class === "unchecked") 
+//       $scope.class = "checked";
+//     else {
+//       $scope.class = "unchecked";
+//     } 
+//   }
+// });
 
+
+// .directive('checklist', ChecklistDirective);
+
+//   function ChecklistDirective(){
+//     var directive = {
+      
+
+//     };
+//     return directive;
+//   }
 
