@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
     <!-- Font-awesome -->
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/index.css">
 
     <!-- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -113,12 +114,12 @@
         <!-- TODO LIST -->
         
         <div class="row">
-            <div class="col-sm-2 col-sm-offset-2">
+            <div class="col-xs-2 col-xs-offset-2">
 
                 <!-- LOOP OVER THE TODOS IN $scope.todos -->
                 <!-- <div class="checkbox" ng-repeat="todo in todos"> -->
 
-                        <p><input type="checkbox" class="step"> Step 1</p>
+                        <p ng-class="{yay: checked}"><input type="checkbox" class="step" ng-click="checked=!checked;"> Step 1</p>
                         <p><input type="checkbox" class="step"> Step 2</p>
                         <p><input type="checkbox" class="step"> Step 3</p>
                         <p><input type="checkbox" class="step"> Step 4</p>
@@ -130,8 +131,8 @@
                         <!-- <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }} -->
                     
             </div>
-            <div class="col-sm-8">
-                <p>Choose an IRA account</p>
+            <div class="col-xs-8">
+                <p ng-class="{red: checked}">Choose an IRA account</p>
                 <p>Open the IRA account</p>
                 <p>Transfer money into your IRA account</p>
                 <p>Investment 101</p>
@@ -144,7 +145,7 @@
 
         <!-- FORM TO CREATE TODOS -->
         <div id="todo-form" class="row">
-            <div class="col-sm-8 col-sm-offset-2 text-center">
+            <div class="col-xs-8 col-xs-offset-2 text-center">
                 <form>
                     <div class="form-group">
 
