@@ -2,7 +2,7 @@ console.log("you're insane");
 var app = angular.module('login', []);
   
 	app.controller("loginController", ['$scope', function($scope) {
-		$scope.sign = "Sign In";
+		$scope.sign = "Log In";
 		
 
 		$scope.signup = function(){
