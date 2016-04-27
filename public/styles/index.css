@@ -1,3 +1,8 @@
+.full-width{
+  width: 100%;
+  margin-bottom: 60px;
+}
+
 .jumbotron{
   background: url(http://academy.cityfunders.com/wp-content/uploads/2015/03/green-investments-537x357.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -8,8 +13,8 @@
   max-width: 100%;
 }
 
-h1.landing-title{
-  font-size: 80px;
+.landing-title{
+  font-size: 72px;
   color: white;
   text-shadow:
     -1px -1px 0 #000,  
@@ -18,7 +23,8 @@ h1.landing-title{
     1px 1px 0 #000;
 }
 
-h2.landing-sub{
+.landing-sub{
+  font-size: 36px;
   color: white;
   text-shadow:
     -1px -1px 0 #000,  
@@ -27,6 +33,14 @@ h2.landing-sub{
     1px 1px 0 #000;
 }
 
+.hash{
+  font-size: 32px;
+  text-shadow:
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
 .vid{
   text-align: center;
 }
@@ -51,7 +65,13 @@ h2.landing-sub{
 }
 
 .btn-success.btn-outline {
-    color: #5cb85c;
+    color: green;
+    text-shadow:
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+
 }
 
 .btn-info.btn-outline {
@@ -65,19 +85,35 @@ h2.landing-sub{
 .btn-danger.btn-outline {
     color: #d9534f;
 }
-
+/*
 .btn-primary.btn-outline:hover,
-.btn-success.btn-outline:hover,
 .btn-info.btn-outline:hover,
 .btn-warning.btn-outline:hover,
-.btn-danger.btn-outline:hover {
+.btn-danger.btn-outline:hover,*/
+.btn-success.btn-outline:hover{
     color: #fff;
+    background-color: green;
 }
 
 #get-started{
-  margin: 60px;
+  margin: 50px;
+  border: 2px solid green;
   /*color: green;*/
 }
+
+.footer{
+  background-color: black;
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 28px;
+}
+
+.copy{
+  font-size: 20px;
+  color: #3A952C;
+  font-style: italic;
+}
+
 /*
 Code snippet by maridlcrmn for Bootsnipp.com
 Follow me on Twitter @maridlcrmn
