@@ -72,7 +72,7 @@ p {
                   <input id="textinput" type="text" placeholder="Enter User Name" name="email" class="form-control input-md">
                     
                   <input id="textinput" type="password" placeholder="Enter Password" name="password" class="form-control input-md">
-                  <button ng-click="signup()"type="button" id="signUpButton" name="signup" class="btn btn-info btn-sm"> Need an Account?<br/></button>
+                  <button ng-click="signup()" ng-class="{'toggle: login'}" type="button" id="signUpButton" name="signup" class="btn btn-info btn-sm"> {{account}}<br/></button>
                   <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-info btn-sm pull-right">{{sign}}</button>
 
               </div>
