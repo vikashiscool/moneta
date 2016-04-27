@@ -6,39 +6,39 @@
 
     <title>Moneta Profile</title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
     <!-- Font-awesome -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
     <!-- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <!-- Angular -->
-    <script src="angular/angular.js"></script>
+    <script src="angular/angular.min.js"></script>
     <!-- ui router -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
-     <script src="scripts/app.js"></script>
+    <script src="scripts/app.js"></script>
     <style>
         body        { padding-top:80px; word-wrap:break-word; }
     </style>
 </head>
 
 <body ng-controller="mainController">
-<div class="container">
+<!-- <div class="container">
 
     <div class="page-header text-center">
         <h1><span class="fa fa-anchor"></span> Sample Profile</h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
-    <div class="row">
+ -->    <!-- <div class="row"> -->
         
         <!-- GOOGLE INFORMATION -->
-        <div class="col-sm-6">
+ <!--        <div class="col-sm-6">
             <div class="well">
                 <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google</h3>
-                
+  -->               
                 <!-- check if the user has this token (is the user authenticated with this social account) -->
-                <% if (user.google.token) { %>
+<!--                 <% #if (user.google.token) { %>
                     <p>
                         <strong>id</strong>: <%= user.google.id %><br>
                         <strong>token</strong>: <%= user.google.token %><br>
@@ -47,20 +47,20 @@
                     </p>
 
                     <a href="/unlink/google" class="btn btn-danger">Unlink</a>
-                <% } else { %>
+                <% #} else { %>
                     <a href="/connect/google" class="btn btn-danger">Connect Google</a>
-                <% } %>
+                <% #} %>
 
             </div>
-        </div>
+        </div> -->
 
 
 
         <!-- FACEBOOK INFORMATION -->
-        <div class="col-sm-6">
+        <!-- <div class="col-sm-6">
           <div class="well">
             <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
-                <% if (user.facebook.token) { %>
+                <% #if (user.facebook.token) { %>
                     <p>
                         <strong>id</strong>: <%= user.facebook.id %><br>
                         <strong>token</strong>: <%= user.facebook.token %><br>
@@ -69,20 +69,20 @@
                     </p>
 
                     <a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
-                <% } else { %>
+                <% #} else { %>
                     <a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
-                <% } %>
+                <% #} %>
 
           </div>
         </div>
-
+ -->
 
         <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
+<!--         <div class="col-sm-6">
             <div class="well">
                 <h3><span class="fa fa-user"></span> Local</h3>
 
-                <% if (user.local.email) { %>
+                <% #if (user.local.email) { %>
                     <p>
                         <strong>id</strong>: <%= user._id %><br>
                         <strong>email</strong>: <%= user.local.email %><br>
@@ -90,16 +90,16 @@
                     </p>
                     
                     <a href="/unlink/local" class="btn btn-default">Unlink</a>
-                <% } else { %>
+                <%# } else { %>
                     <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                <% } %>
+                <%# } %>
 
             </div>
-        </div>
+        </div> -->
 
-    </div>
+    <!-- </div> -->
 
-</div>
+<!-- </div> -->
 
 <!-- Header and count -->
 
@@ -111,18 +111,36 @@
         </div>
 
         <!-- TODO LIST -->
-        <div id="todo-list" class="row">
-            <div class="col-sm-4 col-sm-offset-4">
+        
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-2">
 
                 <!-- LOOP OVER THE TODOS IN $scope.todos -->
-                <div class="checkbox" ng-repeat="todo in todos">
-                    <label>
-                        <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
-                    </label>
-                </div>
+                <!-- <div class="checkbox" ng-repeat="todo in todos"> -->
 
+                        <p><input type="checkbox" class="step"> Step 1</p>
+                        <p><input type="checkbox" class="step"> Step 2</p>
+                        <p><input type="checkbox" class="step"> Step 3</p>
+                        <p><input type="checkbox" class="step"> Step 4</p>
+                        <p><input type="checkbox" class="step"> Step 5</p>
+                        <p><input type="checkbox" class="step"> Step 6</p>
+                        <p><input type="checkbox" class="step"> Step 7</p>
+                        <p><input type="checkbox" class="step"> Step 8</p>
+
+                        <!-- <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }} -->
+                    
             </div>
-        </div>
+            <div class="col-sm-8">
+                <p>Choose an IRA account</p>
+                <p>Open the IRA account</p>
+                <p>Transfer money into your IRA account</p>
+                <p>Investment 101</p>
+                <p>Stocks and Bonds</p>
+                <p>ETF and MF</p>
+                <p>Strategy</p>
+                <p>Invest based on your strategy</p>
+            </div>
+    </div>
 
         <!-- FORM TO CREATE TODOS -->
         <div id="todo-form" class="row">
@@ -131,11 +149,10 @@
                     <div class="form-group">
 
                         <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-                        <input type="text" class="form-control input-lg text-center" placeholder="checklist item" ng-model="formData.text">
                     </div>
 
                     <!-- createToDo() WILL CREATE NEW TODOS -->
-                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+                    <!-- <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button> -->
                 </form>
             </div>
         </div>

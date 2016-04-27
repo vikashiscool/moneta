@@ -1,6 +1,20 @@
 /*
 * public/scripts/app.js
 */
+
+$(document).ready(function() {
+    $('.step').click(function(){
+        $(this).css('background', 'red');
+    console.log("document.ready to rock");
+    })
+});
+
+
+
+
+
+
+
 var moneta = angular.module('moneta', ['ui.router'])
   .controller('mainController', function ($scope, $http) {
     $scope.formData = {};
@@ -31,14 +45,15 @@ var moneta = angular.module('moneta', ['ui.router'])
 
     // DELETE a todo after checking it
     $scope.deleteTodo = function(id) {
-        $http.delete('/api/todos/' + id)
-            .success(function(data) {
-                $scope.todos = data;
-                console.log(data);
-            })
-            .error(function(data) {
-                console.log('Error: ' + data);
-            });
+        console.log("you deleted a thing");
+    //     $http.delete('/api/todos/' + id)
+    //         .success(function(data) {
+    //             $scope.todos = data;
+    //             console.log(data);
+    //         })
+    //         .error(function(data) {
+    //             console.log('Error: ' + data);
+    //         });
     };
 
 });

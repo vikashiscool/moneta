@@ -2,24 +2,130 @@
 <!doctype html>
 <html>
 <head>
-    <title>Node Authentication</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <title>Moneta</title>
+     <!-- Bootstrap -->
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <link rel="icon" href="http://talkaboutsavingmoney.com/wp-content/uploads/2012/11/Talk-about-saving-money-favicon-100x100.png">
+
 </head>
 <body>
-<div class="container">
 
-    <div class="jumbotron text-center">
-        <h1><span class="fa fa-lock"></span> Node Authentication</h1>
+    <!-- Second navbar for search -->
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Moneta</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-3">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#about-section">About</a></li>
 
-        <p>Login or Register with:</p>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+              <a class="btn btn-default btn-outline btn-circle collapsed" href="login.html">Sign in/up</a>
+            </li>
 
-        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
-        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
-        <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
-        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+<!--   <div class="modal fade" id="signinModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Login or Register</h4>
+        </div>
+
+        <div class="modal-body">
+            <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
+            <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
+            <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+            <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+        </div>
+        <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+        <!-- </div> modal-footer -->
+      <!-- </div> modal-content -->
+    <!-- </div> /.modal dialog -->
+  <!-- </div> modal -->
+
+
+
+
+          </ul>
+          <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse3">
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            </form>
+          </div>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+
+<div class="container full-width">
+
+    <div class="text-center jumbotron">
+        <div class="landing-title"><span class="fa fa-bar-chart"></span> Moneta</div>
+
+        <div class="landing-sub">Basic investment strategies for millennials</div>
+        <div class="hash"><a href="https://twitter.com/MonetaInvesting" target="_blank">#RetireEarly</a></div>
+
+    <form action="login.html">
+        <input type="submit" class="btn btn-success btn-outline btn-lg" id="get-started" value="Get started">
+    </form>
 
     </div>
+    <section id="about-section">
+      <div class="vid">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/c1c0a4fo1zo" frameborder="1" allowfullscreen align="center"></iframe>
+      </div>
+    </section>
+</div>
+
+
+  <div class="copy"> 
+    Moneta <i class="fa fa-copyright" aria-hidden="true"></i>
+  </div>
+
+<div class="container text-center footer">
+  <div class="row">
+      <div class="col-md-4">
+        <ul class="nav nav-pills nav-stacked">
+          <li><a href="contact.html" target="_blank">Contact</a></li>
+          <li><a href="https://twitter.com/MonetaInvesting" target="_blank">Twitter</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <ul class="nav nav-pills nav-stacked mid">
+          <li><a href="https://github.com/vikashiscool/moneta" target="_blank">Github</a></li>
+          <li><a href="https://trello.com/b/MINuE1hC/moneta-p5" target="_blank">Trello</a></li>          
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <ul class="nav nav-pills nav-stacked">
+          <li><a href="https://www.facebook.com/MonetaInvesting/" target="_blank">Facebook</a></li>
+          <li><a href="https://generalassemb.ly/education/web-development-immersive" target="_blank">GA WDI</a></li>
+        </ul>
+      </div>  
+
+  </div>
 
 </div>
 </body>

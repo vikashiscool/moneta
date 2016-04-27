@@ -24,10 +24,7 @@ var Todo = require("./models/todo.js");
     app.post('/api/todos', function(req, res) {
 
         // CREATE a todo, information comes from AJAX request from Angular
-        Todo.create({
-            text : req.body.text,
-            done : false
-        }, function(err, todo) {
+        Todo.create(req.body, function(err, todo) {
             if (err)
                 res.send(err);
 
@@ -103,7 +100,7 @@ var Todo = require("./models/todo.js");
     // Process the signup form --> where our success and failure gets redirected
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect : '/profile', // redirect to the secure profile section
-        failureRedirect : '/signup', // redirect back to the signup page if there is an error
+        failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
 
