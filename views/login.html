@@ -1,6 +1,8 @@
 <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <link rel="stylesheet" href="styles/index.css">
+    
 
         <!-- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -62,8 +64,12 @@ p {
   <div class="row">
   
 <div class="col-md-5" >
-<a href="/auth/facebook"><img src="http://techulus.com/buttons/fb.png" /></a><br/>
-<a href="/auth/google"><img src="http://techulus.com/buttons/gplus.png" /></a>
+<a href="/auth/facebook"><img class="loginButton" src="http://auth.sonder.news/logo/facebook-login.png"/></a><br/>
+
+<!-- <a href="/auth/facebook" class="btn btn-block btn-social btn-lg btn-facebook"><i class="fa fa-facebook"></i> Sign in with Facebook</a> -->
+
+<a href="/auth/google"><img class="loginButton" src="https://developers.google.com/accounts/images/sign-in-with-google.png" /></a>
+
 </div>
     <div class="col-md-7" style="border-left:1px solid #ccc;height:160px">
         <form id="sign" action="/login" method="post" class="form-horizontal">

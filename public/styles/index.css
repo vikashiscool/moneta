@@ -184,22 +184,26 @@ Follow me on Twitter @maridlcrmn
     }
 }
 
-.yay {
-  background-color: blue;
-}
 
-
-.red {
-  background-color: red;
-}
-
-
-.checked{
+.checked {
   color: gray;
   text-decoration: line-through;
   /*background-color: purple;*/
 }
 
 .unchecked{
-  background-color: pink;
+  /*color: red;*/
+}
+
+.slideable{
+  color: black;
+}
+
+.todoName{
+  padding-left: 20px;
+}
+
+
+.loginButton{
+  width: 250px;
 }
