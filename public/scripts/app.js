@@ -2,17 +2,12 @@
 * public/scripts/app.js
 */
 
-$(document).ready(function() {
-    $('.step').click(function(){
-        $(this).css('background', 'red');
-    console.log("document.ready to rock");
-    })
-});
-
-
-
-
-
+// $(document).ready(function() {
+//     $('.step').click(function(){
+//         $(this).css('background', 'red');
+//     console.log("document.ready to rock");
+//     })
+// });
 
 
 var moneta = angular.module('moneta', ['ui.router'])
@@ -57,3 +52,6 @@ var moneta = angular.module('moneta', ['ui.router'])
     };
 
 });
+
+
+
