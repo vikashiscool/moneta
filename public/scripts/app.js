@@ -101,14 +101,18 @@ var moneta = angular.module('moneta', ['ui.router'])
     };
 })
 
+
 .directive('slideToggle', function() {
     console.log("slideToggle directive running");
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
-            var target = document.querySelector(attrs.slideToggle);
+            var targetSelector = attrs.slideToggle;
             attrs.expanded = false;
+           console.log(attrs);
+           console.log(targetSelector);
             element.bind('click', function() {
+                var target = document.querySelector(targetSelector);
                 var content = target.querySelector('.slideable_content');
                 if(!attrs.expanded) {
                     content.style.border = '1px solid rgba(0,0,0,0)';
