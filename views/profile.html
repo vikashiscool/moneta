@@ -13,14 +13,13 @@
 
     <!-- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!-- bootstrap.js -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Angular -->
     <script src="angular/angular.min.js"></script>
     <!-- ui router -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
     <script src="scripts/app.js"></script>
-    <style>
-        body        { padding-top:80px; word-wrap:break-word; }
-    </style>
 </head>
 
 <body ng-controller="mainController">
@@ -102,47 +101,551 @@
 
 <!-- </div> -->
 
+    <!-- Second navbar for search -->
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Moneta</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-3">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+              <a class="btn btn-default btn-outline btn-circle collapsed" href="login.html">Sign out</a>
+            </li>
+
+<!--   <div class="modal fade" id="signinModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Login or Register</h4>
+        </div>
+
+        <div class="modal-body">
+            <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
+            <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
+            <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+            <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+        </div>
+        <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+        <!-- </div> modal-footer -->
+      <!-- </div> modal-content -->
+    <!-- </div> /.modal dialog -->
+  <!-- </div> modal -->
+
+          </ul>
+          <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse3">
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            </form>
+          </div>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
 <!-- Header and count -->
 
     <div class="container">
 
-        <!-- HEADER AND TODO COUNT -->
-        <div class="jumbotron text-center">
-            <h1>Moneta Checklist <span class="label label-info">{{ todos.length }}</span></h1>
-        </div>
 
-        <!-- TODO LIST -->
-        
-        <div class="row">
-            <div class="col-xs-2 col-xs-offset-2">
+<!-- <article ng-app="angularSlideables">
+    <h1 slide-toggle="#derp" >Click here for Hipster Ipsum.</h1>
+    <div id="derp" class="slideable"> -->
 
-                <!-- LOOP OVER THE TODOS IN $scope.todos -->
-                <!-- <div class="checkbox" ng-repeat="todo in todos"> -->
+    <div id="welcome">
+      <p>Welcome to <strong>Moneta</strong>! We are here to help you start saving for your future in a simple but effective way. If you are looking for mind-numbing, complicated investment advice, then we have no idea how you found us. That’s not what we do. The goal of this site is to walk you through the process of opening a Roth IRA and teach you the basics of investing without boring you to death.</p> 
 
-                        <p ng-class="{yay: checked}"><input type="checkbox" class="step" ng-click="checked=!checked;"> Step 1</p>
-                        <p><input type="checkbox" class="step"> Step 2</p>
-                        <p><input type="checkbox" class="step"> Step 3</p>
-                        <p><input type="checkbox" class="step"> Step 4</p>
-                        <p><input type="checkbox" class="step"> Step 5</p>
-                        <p><input type="checkbox" class="step"> Step 6</p>
-                        <p><input type="checkbox" class="step"> Step 7</p>
-                        <p><input type="checkbox" class="step"> Step 8</p>
+      <p>There are four main parts to this process that we will help you with:</p>
 
-                        <!-- <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }} -->
-                    
-            </div>
-            <div class="col-xs-8">
-                <p ng-class="{red: checked}">Choose an IRA account</p>
-                <p>Open the IRA account</p>
-                <p>Transfer money into your IRA account</p>
-                <p>Investment 101</p>
-                <p>Stocks and Bonds</p>
-                <p>ETF and MF</p>
-                <p>Strategy</p>
-                <p>Invest based on your strategy</p>
-            </div>
+      <ul>
+      <li>Choosing an investment bank</li>
+      <li>Learning some basic fundamentals of investing</li>
+      <li>Helping you identify what kind of investor you are</li>
+      <li>Choosing the right kind of investments based on your needs</li>
+      </ul>
+
+      <p>One important thing to know before we get started: <strong><em>Moneta is an educational site</em></strong>. We will give you the information you need to make your own smart decisions. As you move you through the steps, you will directed to the website of the investment bank that you choose. We suggest keeping Moneta open, so you can easily move back and forth between as needed.<p>
+
+      <p>Now, let’s get rolling!</p>
     </div>
 
+    <!-- HEADER AND TODO COUNT -->
+    <div class="text-center">
+        <h1>Your Moneta Checklist</h1>
+    </div>
+
+    <div class="row">
+      <div id="checklist" ng-controller="checklistController">
+        <div class="col-xs-10 col-xs-offset-2">
+      <!-- Angular TODO -->
+          <div ng-repeat="todo in todos" class ='unchecked' ng-class="{'checked': todo.isChecked}">
+            <label>
+                <input type="checkbox" ng-model="todo.isChecked"/>
+                <span class="todoStep">{{todo.step}}</span>
+                <span class="todoName" data-toggle="modal" data-target="#step_id_{{todo.id}}">{{todo.name}}</span>
+                <!-- <span class="testThingy" data-toggle="modal" data-target="#myModal">hihi</span> -->
+
+            <!-- //////////////////////
+                ///////Step 1/////////
+                //////////////////////
+                 -->  
+
+                  <div class="modal fade" tabindex="-1" id="step_id_0" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">Step 1: What is Investing? <em> [1 minute]</em></h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>When you invest, you are basically “hiring” your own money to go “work” and earn more money for you. If done smartly, over time your original savings can multiply exponentially. For example, one dollar you invest today can be worth $10 in 30 years. Now you’re probably thinking: “That’s a hella long time to wait for 10 bucks.” Fair enough, but let’s say during those 30 years, little by little, you save 100,000 one dollar bills (roughly $3,300 per year). And at the end of those 30 years, that $100,000 will be worth $1 million. Now we’re talking, right? </p>
+                          
+                          <p>That is investing. And it’s easier than you think.</p>
+                   
+                          <p>What can seem overwhelming, especially if you are just starting out, is deciding among the many investing options. You’ve probably heard of some (stocks and bonds) but might be unfamiliar with others (like ETFs and mutual funds). We walk you through the basics later, but the first choice you need to make is pretty simple. You need to figure out what investment bank is best for you.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-success" data-dismiss="modal">Done</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">I need help</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                  </div><!-- /.modal -->
+
+
+            <!-- //////////////////////
+                ///////Step 2/////////
+                //////////////////////
+                 -->    
+        
+                  <div class="modal fade" tabindex="-1" id="step_id_1" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">Step 2: Gather required information <em> [5 minutes]</em></h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Before you invest in a Roth IRA, you will need to start an account with an investment bank, which will service your account, take care your assets, and invest your money for you based on your direction. The account sign-up process might vary from bank to bank, but the information you will need to provide is generally consistent among most institutions.</p>
+
+                          <p><b>What information will I need?</b></p>
+                          <p>You will need to provide some basic personal and financial information and answer a few questions. We suggest gathering all of the information and having it ready to input before you start the process.</p>
+
+                          <ul>
+                          <li><b>Choose an Account:</b> Roth IRA</li>
+                          <li><b>Personal Information:</b> Name, social security #, passport or driver’s licence #</li>
+                          <li><b>Bank Information:</b> You will be required to fund your account. Some investment banks will require you to begin with a minimum amount (e.g. $1,000); others will allow you to start with a $0 balance and set up a monthly direct deposit from your bank into your Roth IRA. Either way, you will need your bank account and routing numbers. (You can find these at the bottom of your personal checks.)</li>
+                          <li><b>Employment Questions:</b> You might be asked if work for a member firm. The answer to this will be “no” unless you work in the investment industry. If you happen to work in the investment industry, you will need information from your company's human resources department.</li>
+                          <li><b>Beneficiaries:</b> This the person(s) who will receive the monetary benefits of your investments should any exist after your death. If you are married, you will likely choose your partner and/or children. Single investors often choose a brother, sister, other family members, or friends. You can choose multiple beneficiaries, and you will need the following information for each person:
+                          <ul>
+                          <li>Home Address</li>
+                          <li>Social Security #</li>
+                          <li>Date of Birth</li>
+                          </ul>
+                          </li>
+                          <li><b>Optional Information:</b> You will likely be asked to provide some optional information regarding your investing profile and preferences. If you aren’t comfortable answering these questions, go ahead and skip them. You can always go back and provide the information later.</li>
+
+                          </ul>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-success" data-dismiss="modal">Done</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">I need help</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                  </div><!-- /.modal -->
+
+
+            <!-- //////////////////////
+                ///////Step 3/////////
+                //////////////////////
+                 -->  
+
+
+                    <div class="modal fade" id="step_id_2" tabindex="-1" role="dialog">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Step 3: Choose an Investment Bank <em>[15 minutes]</em></h4>
+                          </div>
+                          <div class="modal-body">
+                              <p>There are several investment banks to choose from, but we have outlined three options below that we feel offer respectable service while keeping fees relatively low. You are more than welcome to do your own research or ask for recommendations from family or friends.</p>
+                              <div class="bank"><a href="https://invest.tdameritrade.com/grid/p/accountApplication">TD Ameritrade<a></div>
+                              <p><a href="tel:800-454-9272">800-454-9272</a></p>
+
+                              <b>What we like:</b>
+                                <ul>
+                                  <li>No minimum balance</li>
+                                  <li>Access to 100+ no-fee exchange traded fund, funds that are free to own, selected by a third party rather than specific to your needs</li>
+                                  <li>Ranked as “Best online broker for long term investors” in 2015 by Barron’s</li>
+                                  </ul>
+
+                              <b>Beware of:</b>
+                                <ul>
+                                  <li>$9.99 per online trade for ETFs outside the commission free ETFs</li>
+                                  <li>Comparatively low number of commission free ETFs</li>
+                                  <li>Mobile app is not up to par with competition.</li>
+                                  <li>In-person support lacking</li>
+                                </ul>
+
+                              <div class="bank"><a href="https://accountopening.fidelity.com/ftgw/aong/aongapp/accountSelectorEntry#1461000919473">Fidelity</a></div>
+                              <p><a href="tel:800-343-3548">800-343-3548</a></p>
+                              
+                              <b>What we like:</b>
+                                <ul>
+                                  <li>No minimum balance</li>
+                                  <li>High end mobile app to monitor investments</li>
+                                  <li>7.95 for regular trades, 84 no commision (aka no cost to trade) ETFs</li>
+                                  <li>In person support and seminars are great.</li>
+                                </ul>
+  
+                              <b>Beware of:</b>
+                                <ul>
+                                  <li>Price quote tool not very robust</li>
+                                  <li>Limited ETF issuers available</li>
+                                  <li>Communication regarding your investments is full of jargon.</li>
+                                </ul>
+
+                              <div class="bank"><a href="https://enroll.schwab.com/AoUI/#/getStarted">Charles Schwab</a></div>
+                              <p><a href="tel:866-855-9102">866-855-9102</a></p>
+                              
+                              <b>What we like:</b>
+                              <ul>
+                                <li>No required opening balance if you set up an automatic monthly transfer of $100 through direct deposit</li>
+                                <li>$0 per Schwab ETF online trade in your Schwab account</li>
+                                <li>Robust retirement planning tools and educational resources</li>
+                                <li>24/7 customer support</li>
+                              </ul>
+
+                              <b>Beware of:</b>
+                              <ul>
+                                <li>$1,000 required to open an account (if you don’t choose direct deposit)</li>
+                                <li>No Virtual Trading or Demo Option</li>
+                                <li>Depending on where you live, brick-and-mortar locations could be limited</li>
+                              </ul>
+                              <p>Once you have chosen your investing bank, you can begin the process of wiring money over, either as a lump sum or regular contribution. The maximum contribution to a Roth IRA is $5,500. </p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div><!-- /.modal-content -->
+                      </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+
+
+            <!-- //////////////////////
+                ///////Step 4/////////
+                //////////////////////
+                 -->  
+                  <div class="modal fade" tabindex="-1" id="step_id_3" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">Step 4: Stocks and Bonds <em> [5 minutes]</em></h4>
+                        </div>
+                        <div class="modal-body">
+                            <p><b>What is a stock?</b><br>
+                            A <b>stock</b> is a share of ownership in a publically traded company. When you purchase a share of a stock, you are considered, in part, an owner (or shareholder) of that company. This doesn’t mean you suddenly walk through the front door and start bossing people around, but you are entitled to a claim of the company's assets and earnings.</p>
+                             
+                            <p><b>Why would a company sell shares of ownership to random people?</b><br>
+                            The short answer: fast cash. At some point every company will need to raise money, and they have two options: sell part of the company in the form of stock (a.k.a equity) or issue debt against itself in the form of corporate bonds (which we will cover below).</p>
+
+                            <p><b>So what’s in it for me?</b><br>
+                            Purchasing stock in a company is basically a vote of confidence in its future. When a company does well, its stock price rises. The goal for investors is to hold onto shares of stock for a long enough time to see the company experience significant growth. When that happens, the stock price increases and is worth more than when you originally bought it. At any given time, you can sell (a.k.a liquidate) your shares. The money you earned on top of your original investment is called capital gains.</p>
+
+                            <p><b>What is a bond?</b><br>
+                            As an investor, you can also lend companies money. When you do, you purchase a <b>bond</b>, which is a promise from the company to pay you back at a predetermined date in the (usually far) future. It’s just another way to for a company to raise money. Many large companies simultaneously have a large portion of their company available to the public in the form of stock AND have millions of dollars of debt issued against itself in the form of bonds.</p>
+
+                            <p><b>Why would I lend money to a huge company?</b><br>
+                            Just like a loan from a traditional bank, you will earn interest (a small % extra) for lending your money to a company. In this case, you are like the bank. And the company will agree to pay you back in full on the maturity date (often times many years in the future), but in the meantime, you will be paid the interest on a fixed schedule.</p>
+
+                            <p><b>OK, this all sounds great. Is there any risk involved?</b><br>
+                            There is always risk. You could pick a stock that loses value over time. Or you could lend money to a company that goes bankrupt and can’t pay you back. In the investing world, risk and reward are at play. Stocks are a more risky than bonds. But stocks also can make you more money than bonds. Putting more of your money in stocks makes you an <b>aggressive investor</b>. If you want to be a <b>conservative investor</b>, you would invest the more of your money in bonds. The great thing is, there are ways to minimize risk and maximize reward. (We will help you figure out what works best for you later.)</p>
+                             
+                            <p><b>Can I just start buying stock in companies?</b><br>
+                            You could, but unless you have ton of money and/or willing to take a lot of risk and potentially lose money, it wouldn’t be the best strategy. Let’s look at Tesla, (TSLA), for example. One share of its stock costs nearly $250 dollars. So if you had $1,000 to start investing, you could only buy four shares. Tesla is doing some innovative stuff right now, so let’s assume it keeps it up and that in 20 years it’s stock has increased by 40% and is now worth $350, which would be really impressive growth for a company. Your four shares have earned you a grand total of $400 in two decades. And that is taking a risk that Tesla will continue to produce cool cars that people will want to buy. That is no guarantee.</p>
+                             
+                            <p><b>That’s a lot of time to wait for $400. Are there better options?</b><br>
+                            Yes, it is. And yes there are. You can use that same $1,000 (or even less) to become an investor who will have consistent yearly gains regardless of if the newest Telsa car is a hit or not. To do this you can invest in groupings of stocks or bonds that offer better value for investors. We cover two main types on the next page.</p>
+
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-success" data-dismiss="modal">Done</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">I need help</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                  </div><!-- /.modal -->
+
+            <!-- //////////////////////
+                ///////Step 5/////////
+                //////////////////////
+                 -->  
+                  <div class="modal fade" tabindex="-1" id="step_id_4" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">Step 5: Mutual Funds and ETFs <em> [5 minutes]</em></h4>
+                        </div>
+                        <div class="modal-body">
+                            <p><b>What are mutual funds?</b><br>
+                            Think of a mutual fund as a bucket. And the bucket is filled with stocks or bonds of many different companies. Instead of investing in all of those different companies individually, you invest in shares of the bucket (the mutual fund). And shares of the mutual fund are much more affordable than buying individual shares of those companies.</p>
+
+                            <p><b>Do I have ownership in all of those companies?</b><br>
+                            You don’t have the same rights or benefits of ownership as a you would buying full shares. You own little slices of each share of each company along with all of the other investors who are buying into that mutual fund. Active mutual funds have a team of people who manage the fund, making decisions on which underlying stocks they believe will do better than the market as a whole. And beating the market requires a lot of time and research.</p>
+
+                            <p><b>And who pays this team of people trying to beat the market for me? </b><br>
+                            You do. The good news is that the fees are split among all of the investors buying into the mutual fund. But they that can still add up, and you have to pay them whether the mutual fund makes money or not. Mutual funds also may have additional requirements on minimum balances and trading frequency.</p>
+
+                            <p><b>That quickly went from sounding awesome to not as awesome.</b><br>
+                            Don’t worry there is still another option. To cut back on fees even more, an exchange traded fund (ETF) is the right choice.</p>
+
+                            <p><b>WTF is an ETF?</b><br>
+                            An ETF is a low-cost index fund that tries to mirror the performance of the market instead of beating it. Like a mutual fund, an ETF is grouping of stocks or bonds with many investors buying small slices of each share. However, while the mutual fund has a team of people steering it, the ETF is on “autopilot,” which makes it cheaper to manage the fund. In other words, there are fewer fees for you to pay.</p> 
+
+                            <p><b>What is a good example of a specific ETF?</b><br>
+                            The iShares S&P 500 Index ETF (IVV) is a popular fund with more than $72 billion dollars of assets invested in it to buy shares of stock of the top 500 companies in the United States. So this ETF is a powerful way to use a relatively small amount of money to gain access to the possible gains of the top 500 companies in the US. This exposure is referred to as diversification.</p>
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-success" data-dismiss="modal">Done</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">I need help</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                  </div><!-- /.modal -->
+
+            <!-- //////////////////////
+                ///////Step 6/////////
+                //////////////////////
+                 -->  
+                  <div class="modal fade" tabindex="-1" id="step_id_5" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">Step 6: Asset Allocation <em> [10 minutes]</em></h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Congrats! You have survived (tolerated us) to a very important point in the process. Before we move on, let’s do a quick review:
+                          <ul>
+                            <li>We now understand that mutual funds and ETFs are groupings (buckets) of securities (either stocks or bonds) that are traded on the market as if they were stocks themselves. </li>
+                            <li>Both options are more cost-effective than buying enough individual stocks or bonds to become optimally diversified.</li>
+                            <li>Mutual funds are actively managed by a team of people trying to outperform the market.</li>
+                            <li>ETFs essentially run on “autopilot,” trying to mirror the market instead of beat it. This makes them cheaper to own and maintain than mutual funds.</li>
+                          </ul>
+                          </p>
+
+                          
+                          <p>If you are interested in keeping your costs down, you will likely be interested in investing in ETFs. But which one is right for you? To understand that we need to talk a little bit about <b>asset allocation</b>.</p>
+                   
+                          <p><b>Asset what? That sounds complicated.</b><br>
+                            It’s not, really. To be truly diversified, you should split your money between two different categories, each with varying levels of risk. And these categories should sound familiar by now:
+
+                            <ul>
+                            <li>ETF buckets full of stocks (higher risk, higher yield)</li>
+                            <li>ETF buckets full of bonds (lower risk, lower yield)</li>
+                            </ul>
+
+                            Asset allocation is simply deciding what percentage of your investment to designate into each of these groups.
+                          </p>
+
+                          <p><b>And how do I do that?</b><br>
+                          As a general rule of thumb, you can use this simple equation: 
+                          </p>
+                          <p><em>Start with 110 and subtract your age.</em></p>
+
+                          <p>This is the percentage of your portfolio that should be stocks. The rest should be allocated toward bonds.</p>
+
+                          <p>For example: 
+                            <ul>
+                              <li>Age: 25; portfolio will be 85% stocks, 15% bonds</li>
+                              <li>Age: 30; portfolio will be 80% stocks, 20% bonds </li>
+                              <li>Age 40; portfolio will be 70% stocks, 30% bonds</li>
+                            </ul>
+                          </p>
+
+                          <p>You’ll notice an obvious pattern; as you get older, you will be investing more in bonds and less in stocks. The idea here is simple: As you get closer to retiring, you will want to minimize the risk of losing a large portion of your portfolio in the volatility of the stock market. Thus you will start investing more in safer funds (bond funds) and less in volatile funds (stock funds).</p>
+
+                          <p><b>Easy enough. How hard-and-fast is this rule of thumb?</b><br>
+                            Let’s call it a general guideline for “best practices” investing. You can always make adjustments, depending on how aggressive or conservative you want to be. And as always, more risk comes with the potential of making or losing larger amounts of money. Lower risk is safer with lower yield on your investment.
+                          </p>
+                          <p>So you would start with the equation above: 110 minus your age. Then adjust as follows:</p>
+                          <ul>
+                            <li>Aggressive Investor: Add up to 10%</li>
+                            <li>Conservative Investor: Subtract up to 10%</li>
+                          </ul>
+
+                          <p>For example, a 25-year-old aggressive investor might have a portfolio allocation of 93% stocks and 7% bonds. (110 - 25 = 85% + 8% = 93% stock allocation)</p>
+
+                          <p>A 30-year-old conservative investor might have 75% in stock and 25% in bonds. (110 - 30 = 80% - 5% = 75% stock allocation)</p>
+
+                          <p>To help you decide whether you are (or should be) an aggressive, moderate, or conservative investor, we feature some of the traits of each in the next step.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-success" data-dismiss="modal">Done</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">I need help</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                  </div><!-- /.modal -->
+
+            <!-- //////////////////////
+                ///////Step 7/////////
+                //////////////////////
+                 -->  
+                  <div class="modal fade" tabindex="-1" id="step_id_6" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">Step 7: Investor Profiles <em> [10 minutes]</em></h4>
+                        </div>
+                        <div class="modal-body">
+                          <div class="bank"><a href="#">Aggressive</a></div>
+                          <div class="bank"><a href="#">Moderate</a></div>
+                          <div class="bank"><a href="#">Conservative</a></div>
+  
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-success" data-dismiss="modal">Done</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">I need help</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                  </div><!-- /.modal -->
+
+
+
+            <!-- //////////////////////
+                ///////Step 8/////////
+                //////////////////////
+                 -->  
+                  <div class="modal fade" tabindex="-1" id="step_id_7" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">Step 8: Choose Your Investments <em> [10 minutes]</em></h4>
+                        </div>
+                        <div class="modal-body">
+                          <p><b>OK, thanks. At some point, I should probably choose some ETFs, right?</b><br>
+
+                          Yes you should. Let’s tackle the stocks portion of your portfolio first. As a long-term investor, we suggest looking into two main types of stock funds: 
+                            <ul>
+                              <li>ETFs that hold companies based in the United States</li>
+                              <li>ETFs that hold companies based outside of the United States</li>
+                            </ul>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-success" data-dismiss="modal">Done</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">I need help</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                  </div><!-- /.modal -->
+
+            <!-- //////////////////////
+                ///////Step 9/////////
+                //////////////////////
+                 -->  
+                  <div class="modal fade" tabindex="-1" id="step_id_8" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">Step 9: Tips for the Future <em> [3 minutes]</em></h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Congratulations! You have taken the first step to an early retirement. There will be more to learn in the future, but you can tackle all of that when you’re ready. In the meantime, here are a few tips to consider with regard to your new Roth IRA.</p>
+
+                          <p><b>Make Regular Contributions:</b> Even a modest amount of savings each month will make a significant difference in the long term. To take advantage of the maximum tax benefits later, you should save as much as possible each year. And if you can afford it, you should definitely contribute the maximum amount of $5,500.</p> 
+
+                          <p><b>Limit Market Moves:</b> The benefit of a investing in ETF funds is that you don’t have to micro-manage your portfolio. Remember, your time horizon for this money is going to be decades not years in the future. The market will will rise and fall in the short term, but over the course 20 or 30 years, it will trend in an upward direction. Don’t get scared during a down time and sell. By limiting your trading and focusing on the long term, you will stay away from incurring unnecessary trading costs and taxes on any gains you made.</p> 
+
+                          <p><b>Rebalance:</b> Taking a hands-off approach to your Roth IRA doesn’t mean ignoring it altogether.  You should schedule periodic check ins (at least once a year) to ensure that your account is still reflecting your investor profile. If your desired stocks-to-bonds ratio has been thrown off, you should rebalance your portfolio back to the optimal ratio.</p> 
+                           
+                          <p><b>Be aware of taxes:</b> You are required to report your Roth IRA information on your taxes each year (your investment bank will send you the necessary information). When selling ETFs in your investing account, any gains or losses should be reported on your taxes in the year you sold the investment.</p>
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-success" data-dismiss="modal">Done</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">I need help</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                  </div><!-- /.modal -->
+
+
+
+
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        </div><!--  closing of div container? -->
+
+                <!-- <div id="step_id_{{todo.id}}'" class="slideable"> -->
+                  <!-- <h1>Investor Profiles [Check 7, 10 minutes]</h1> -->
+                  <!-- <p>Modules for : -->
+<!-- 
+Aggressive
+
+Moderate 
+
+Aggressive -->
+
+<!-- </p> -->
+                <!-- </div> -->
+
+
+
+<!-- 
+                <div id="step_id_{{todo.id}}'" class="slideable">
+                  <h1>Choose Your Investments [Check 8, 10 minutes]
+</h1>
+                  <p>Copy TK
+
+OK, thanks. At some point, I should probably choose some ETFs, right?
+Yes you should. Let’s tackle the stocks portion of your portfolio first. As a long-term investor, we suggest looking into two main types of stock funds: 
+ETFs that hold companies based in the United States
+ETFs that hold companies based outside of the United States 
+</p>
+                </div> -->
+
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <!-- TODO LIST -->
+        
         <!-- FORM TO CREATE TODOS -->
         <div id="todo-form" class="row">
             <div class="col-xs-8 col-xs-offset-2 text-center">
