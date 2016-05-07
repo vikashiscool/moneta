@@ -12,7 +12,7 @@ var express = require('express'),
     path = require('path'),
     methodOverride = require('method-override'),
     configDB = require('./config/database.js');
-    SessionStore = require('session-mongoose')(express)
+    // SessionStore = require('session-mongoose')(express)
 
     require('./config/passport')(passport); // pass passport for configuration
 
@@ -40,16 +40,16 @@ app.use(methodOverride());
 
 
 // required for passport
-app.use(
-  express.session({
-    store: new SessionStore({
-    url: 'mongodb://localhost/session',
-    interval: 1200000
-  }),
-  cookie: { maxAge: 1200000 },
-  secret: 'my secret'
-}))
-// app.use(session({ secret: 'moneymoneymoney', resave: false, saveUninitialized: false })); // session secret
+// app.use(
+//   express.session({
+//     store: new SessionStore({
+//     url: 'mongodb://localhost/session',
+//     interval: 1200000
+//   }),
+//   cookie: { maxAge: 1200000 },
+//   secret: 'my secret'
+// }))
+app.use(session({ secret: 'moneymoneymoney', resave: false, saveUninitialized: false })); // session secret
 app.use(passport.initialize()); // --> dependent on config/passport.js
 app.use(passport.session()); // persistent login sessions --> dependent on config/passport.js
 app.use(flash()); // use connect-flash for flash messages stored in session
