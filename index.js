@@ -49,9 +49,6 @@ app.use(methodOverride());
 //   cookie: { maxAge: 1200000 },
 //   secret: 'my secret'
 // }))
-mongoose.connect( process.env.MONGOLAB_URI ||
-                  process.env.MONGOHQ_URL ||
-                  "connected to localhost")
 app.use(session({ secret: 'moneymoneymoney', resave: false, saveUninitialized: false })); // session secret
 app.use(passport.initialize()); // --> dependent on config/passport.js
 app.use(passport.session()); // persistent login sessions --> dependent on config/passport.js
