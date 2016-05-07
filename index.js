@@ -1,6 +1,5 @@
 var express = require('express'),
     app = express(),
-    port = process.env.PORT || 8080,
     mongoose = require('mongoose'),
     passport = require('passport'),
     flash = require('connect-flash'),
@@ -55,6 +54,6 @@ require('./routes.js')(app, passport); // load our routes and pass in our app an
 
 
 // listen on port 8080 (local) or process.env.PORT (heroku)
-app.listen(port, function() {
-  console.log('Server started on port ' + port);
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
