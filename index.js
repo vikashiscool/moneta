@@ -49,7 +49,7 @@ app.use(methodOverride());
 //   cookie: { maxAge: 1200000 },
 //   secret: 'my secret'
 // }))
-app.use(session({ secret: 'moneymoneymoney', resave: false, saveUninitialized: false })); // session secret
+app.use(session({ secret: 'moneymoneymoney', resave: false, store: new MongoStore({'db': 'moneta'}),  saveUninitialized: false })); // session secret
 app.use(passport.initialize()); // --> dependent on config/passport.js
 app.use(passport.session()); // persistent login sessions --> dependent on config/passport.js
 app.use(flash()); // use connect-flash for flash messages stored in session
