@@ -10,7 +10,7 @@ These sections roughly describe the technologies used in the development of this
 
 ## Languages/Frameworks
 
-A MEAN stck app, this project is built primarily with Javascript, specifically Node.js with Express on the back-end, Angular on the back-end, and MongoDB to handle data. For design, HTML5/CSS3 will be used, as well as a Bootstrap.
+A MEAN stack app, this project is built primarily with Javascript, specifically Node.js with Express on the back-end, Angular on the back-end, and MongoDB to handle data. For design, HTML5/CSS3 will be used, as well as a Bootstrap.
 
 <!-- ## Testing
 
