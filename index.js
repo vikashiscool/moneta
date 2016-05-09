@@ -17,7 +17,7 @@ var express = require('express'),
     require('./config/passport')(passport); // pass passport for configuration
 
 // configuration ===============================================================
-// mongoose.connect(configDB.url); // connect to our database
+mongoose.connect(process.evn.MONGOLAB_URI || mongodb:/\/localhost/test); // connect to our database
 
 mongoose.createConnection('mongodb://localhost/moneta'); // connect to our database on your local system named moneta. You can name it whatever you like, and it will be created as soon as you save some data to it.
 
@@ -49,7 +49,7 @@ app.use(methodOverride());
 //   cookie: { maxAge: 1200000 },
 //   secret: 'my secret'
 // }))
-app.use(session({ secret: 'moneymoneymoney', resave: false, store: new MongoStore({'db': 'moneta'}),  saveUninitialized: false })); // session secret
+app.use(session({ secret: 'moneymoneymoney', resave: false, saveUninitialized: false })); // session secret
 app.use(passport.initialize()); // --> dependent on config/passport.js
 app.use(passport.session()); // persistent login sessions --> dependent on config/passport.js
 app.use(flash()); // use connect-flash for flash messages stored in session
