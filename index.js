@@ -17,7 +17,7 @@ var express = require('express'),
     require('./config/passport')(passport); // pass passport for configuration
 
 // configuration ===============================================================
-mongoose.createConnect(process.env.MONGOLAB_URI || 'mongodb://localhost/moneta'); // connect to our database
+// mongoose.createConnect(process.env.MONGOLAB_URI || 'mongodb://localhost/moneta'); // connect to our database
 
 // mongoose.createConnection('mongodb://localhost/moneta'); // connect to our database on your local system named moneta. You can name it whatever you like, and it will be created as soon as you save some data to it.
 
