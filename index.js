@@ -12,13 +12,14 @@ var express = require('express'),
     path = require('path'),
     methodOverride = require('method-override'),
     configDB = require('./config/database.js'),
-    MongoStore = require('connect-mongo')(session);
+    MongoStore = require('connect-mongo')(session),
+    configDB = require('./config/database.js');
     // SessionStore = require('session-mongoose')(express)
 
     require('./config/passport')(passport); // pass passport for configuration
 
 // configuration ===============================================================
-// mongoose.createConnect(process.env.MONGOLAB_URI || 'mongodb://localhost/moneta'); // connect to our database
+mongoose.connect(configDB.url); // connect to our database
 
 // mongoose.createConnection('mongodb://localhost/moneta'); // connect to our database on your local system named moneta. You can name it whatever you like, and it will be created as soon as you save some data to it.
 
