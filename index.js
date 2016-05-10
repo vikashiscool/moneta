@@ -11,7 +11,8 @@ var express = require('express'),
     db = require('./models'),
     path = require('path'),
     methodOverride = require('method-override'),
-    configDB = require('./config/database.js');
+    configDB = require('./config/database.js'),
+    MongoStore = require('connect-mongo')(session);
     // SessionStore = require('session-mongoose')(express)
 
     require('./config/passport')(passport); // pass passport for configuration
