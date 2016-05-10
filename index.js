@@ -12,7 +12,7 @@ var express = require('express'),
     path = require('path'),
     methodOverride = require('method-override'),
     configDB = require('./config/database.js'),
-    MongoStore = require('connect-mongo')(session),
+    // MongoStore = require('connect-mongo')(session),
     configDB = require('./config/database.js');
     // SessionStore = require('session-mongoose')(express)
 
@@ -52,10 +52,10 @@ app.use(methodOverride());
 //   secret: 'my secret'
 // }))
 app.use(session({ secret: 'moneymoneymoney', resave: false,  saveUninitialized: false, 
-    store: new MongoStore({
-      mongooseConnection: mongoose.connection,
-      url: process.env.MONGOLAB_URI
-    })
+    // store: new MongoStore({
+    //   mongooseConnection: mongoose.connection,
+    //   url: process.env.MONGOLAB_URI
+    // })
   })); // session secret
 app.use(passport.initialize()); // --> dependent on config/passport.js
 app.use(passport.session()); // persistent login sessions --> dependent on config/passport.js
