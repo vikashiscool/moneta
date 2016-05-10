@@ -5,4 +5,4 @@ mongoose.connect( process.env.MONGOLAB_URI ||
 // mongoose.connect("mongodb://localhost/moneta");
 
 module.exports.Todo = require("./todo.js");
-module.exports.User = require("./user.js")
+module.exports.User = require("./user.js");
