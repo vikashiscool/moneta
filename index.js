@@ -53,6 +53,7 @@ app.use(methodOverride());
 // }))
 app.use(session({ secret: 'moneymoneymoney', resave: false,  saveUninitialized: false, 
     store: new MongoStore({
+      mongooseConnection: mongoose.connection,
       url: process.env.MONGOLAB_URI
     })
   })); // session secret
