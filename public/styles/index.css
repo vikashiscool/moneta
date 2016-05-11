@@ -9,14 +9,16 @@ p{
   width: 100%;
   /*margin-bottom: 60px;*/
 }
-
+.getStarted{
+  padding: 3px;
+}
 .jumbotron{
   background: url(http://academy.cityfunders.com/wp-content/uploads/2015/03/green-investments-537x357.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 500px;
+  height: 700px;
   max-width: 100%;
   margin-bottom: -15px;
 }
